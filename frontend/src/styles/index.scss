@@ -1,7 +1,8 @@
 @import "variables";
-@import "themes/materia/variables";
+@import "themes/darkly/variables";
 @import "bootstrap";
-@import "themes/materia/bootswatch";
+@import "themes/darkly/bootswatch";
+@import "~font-awesome/scss/font-awesome";
 
 html, body, div#root, div.container {
   height: 100%;

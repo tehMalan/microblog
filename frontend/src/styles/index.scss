@@ -1,13 +1,16 @@
 @import "variables";
-@import "themes/darkly/variables";
 @import "bootstrap";
 @import "themes/darkly/bootswatch";
 @import "~font-awesome/scss/font-awesome";
 
-html, body, div#root, main {
+html, body, div#root {
   height: 100%;
 }
 
 body {
   font-family: 'Rubik', sans-serif;
+}
+
+main .container {
+  background-color: $mine-shaft;
 }

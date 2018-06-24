@@ -1,2 +1,9 @@
-$font-size-base: 1.1rem !default;
-$fa-font-path: '~font-awesome/fonts'
+@import "themes/darkly/variables";
+
+$mine-shaft: #2b2b2b;
+$light-mine-shaft: #3e3e3e;
+$dark-mine-shaft: #232323;
+$font-size-base: 1.05rem;
+$fa-font-path: '~font-awesome/fonts';
+$navbar-light-bg: $light-mine-shaft;
+$body-bg: $dark-mine-shaft;

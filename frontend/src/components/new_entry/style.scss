@@ -1,0 +1,12 @@
+@import "styles/_variables.scss";
+
+.form {
+  padding: 0.45rem;
+  background-color: $light-mine-shaft;
+
+  textarea, textarea:focus {
+    min-height: 3rem;
+    color: $white;
+    background-color: $mine-shaft;
+  }
+}

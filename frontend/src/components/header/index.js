@@ -13,8 +13,9 @@ const Header = () => (
                     <NavItem>
                         <FontAwesome name="bell"/>
                     </NavItem>
+
                     <NavItem>
-                        <FontAwesome name="sign-out"/>
+                        <FontAwesome name="sign-in"/>
                     </NavItem>
                 </Nav>
             </Navbar>

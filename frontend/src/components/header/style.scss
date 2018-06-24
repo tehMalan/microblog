@@ -1,3 +1,11 @@
+@import "styles/_variables.scss";
+
 .header {
-  background-color: #303030;
+  background-color: $navbar-light-bg;
+
+  nav { padding: 0.65rem 1rem; }
+
+  li { cursor: pointer; }
+
+  li:not(:last-child) { margin-right: 1.5rem; }
 }

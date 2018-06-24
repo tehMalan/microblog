@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styles from "./style.scss";
+import EntryText from "components/new_entry/EntryText";
 
 class NewEntry extends Component {
 
@@ -10,38 +11,30 @@ class NewEntry extends Component {
             text: ''
         };
 
-        this.textChangeHandler = this.textChangeHandler.bind(this);
-        this.textAreaFocusHandler = this.textAreaFocusHandler.bind(this);
-        this.textAreaBlurHandler = this.textAreaBlurHandler.bind(this);
+        this.onTextFocusChanged = this.onTextFocusChanged.bind(this);
+        this.onTextChanged = this.onTextChanged.bind(this);
         this.submitHandler = this.submitHandler.bind(this);
     }
 
-    textChangeHandler(e) {
-        this.setState({ text: e.target.value })
+    onTextChanged(text) {
+        console.log(text);
+        this.setState({ text: text });
     }
 
-    textAreaFocusHandler() {
-        this.setState({ isControlsOpen: true })
-    }
-
-    textAreaBlurHandler() {
-        this.setState({ isControlsOpen: !!this.state.text })
+    onTextFocusChanged(isFocused) {
+        console.log(this.state.text);
+        this.setState({ isControlsOpen: isFocused || (!isFocused && !!this.state.text) });
     }
 
     submitHandler(e) {
-        console.log('Submit!');
+        console.log('Submit!' + this.state.text);
         e.preventDefault();
     }
 
     render() {
         return (
             <form onSubmit={this.submitHandler} className={styles.form}>
-                <textarea value={this.state.text}
-                          className={`${styles.text} form-control`}
-                          placeholder="What's up?"
-                          onChange={this.textChangeHandler}
-                          onFocus={this.textAreaFocusHandler}
-                          onBlur={this.textAreaBlurHandler}  />
+                <EntryText value={this.state.text} onValueChanged={this.onTextChanged} onTextFocusChanged={this.onTextFocusChanged} />
 
                 <div className={`${this.state.isControlsOpen ? 'd-block' : 'd-none'} text-right`}>
                     <button type="submit" className="btn btn-primary mt-1 px-4 btn-sm">Send</button>

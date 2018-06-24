@@ -8,10 +8,15 @@ class NewEntry extends Component {
         this.state = {
             isControlsOpen: false,
             text: ''
-        }
+        };
+
+        this.textChangeHandler = this.textChangeHandler.bind(this);
+        this.textAreaFocusHandler = this.textAreaFocusHandler.bind(this);
+        this.textAreaBlurHandler = this.textAreaBlurHandler.bind(this);
+        this.submitHandler = this.submitHandler.bind(this);
     }
 
-    textAreaChangeHandler(e) {
+    textChangeHandler(e) {
         this.setState({ text: e.target.value })
     }
 
@@ -30,13 +35,13 @@ class NewEntry extends Component {
 
     render() {
         return (
-            <form onSubmit={this.submitHandler.bind(this)} className={styles.form}>
+            <form onSubmit={this.submitHandler} className={styles.form}>
                 <textarea value={this.state.text}
                           className={`${styles.text} form-control`}
                           placeholder="What's up?"
-                          onChange={this.textAreaChangeHandler.bind(this)}
-                          onFocus={this.textAreaFocusHandler.bind(this)}
-                          onBlur={this.textAreaBlurHandler.bind(this)}  />
+                          onChange={this.textChangeHandler}
+                          onFocus={this.textAreaFocusHandler}
+                          onBlur={this.textAreaBlurHandler}  />
 
                 <div className={`${this.state.isControlsOpen ? 'd-block' : 'd-none'} text-right`}>
                     <button type="submit" className="btn btn-primary mt-1 px-4 btn-sm">Send</button>
